@@ -7,8 +7,8 @@ _________________________________________________________ -->
 
             <a class="navbar-brand home" href="index.html"
                data-animate-hover="bounce">
-                <img src="img/att_logo.png" alt="WeaveSocks_ATT logo" class="hidden-xs">
-                <img src="img/att_logo.png" alt="WeaveSocks_ATT logo"
+                <img src="img/logo.png" alt="WeaveSocks logo" class="hidden-xs">
+                <img src="img/logo-small.png" alt="WeaveSocks logo"
                      class="visible-xs"><span class="sr-only">WeaveSocks - go to homepage</span>
             </a>
         </div>
@@ -75,7 +75,6 @@ _________________________________________________________ -->
                         </li>
                     </ul>
                 </li>
-                <li><a href="web.flow.ecloud-kdemo.com">BREAKING NEWS: WS is officially joining forces with AT&amp;T!</a></li>
                 <li id="tabAccount"><a href="customer-orders.html">Account</a>
                 </li>
                 <!--<li class="dropdown yamm-fw">-->
@@ -206,11 +205,9 @@ _________________________________________________________ -->
         $.ajaxSetup({
             contentType: "application/json; charset=utf-8"
         });
-
         if ($.cookie('logged_in') == null || $.cookie('logged_in') == "") {
             $("#tabAccount").remove()
         }
-
         $.getJSON('/cart', {}, function (data) {
             if (data != null) {
                 var numItemsInCart = 0;
@@ -227,14 +224,12 @@ _________________________________________________________ -->
         }).error(function () {
             $('#basket-overview').remove();
         });
-
         //Add Hover effect to menus
         jQuery('ul.nav li.dropdown').hover(function () {
             jQuery(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn();
         }, function () {
             jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut();
         });
-
         // Set active tabs
         if (window.location.toString().indexOf("category.html") > -1) {
             $('#tabCatalogue').addClass("active");
